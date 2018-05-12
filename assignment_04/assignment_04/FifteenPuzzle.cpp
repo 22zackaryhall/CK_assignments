@@ -111,7 +111,7 @@ int playFifteenPuzzle() {
 
 	nMove = 0;
 	tStart = clock();
-	while (!isDone) {
+	while (!isDone()) {
 		move(getDirKey());
 		display();
 	}
