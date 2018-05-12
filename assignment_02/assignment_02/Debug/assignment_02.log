@@ -1,0 +1,7 @@
+﻿  assignment_02_03.cpp
+c:\users\user\documents\visual studio 2015\projects\assignment_02\assignment_02\assignment_02_03.cpp(26): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+c:\users\user\documents\visual studio 2015\projects\assignment_02\assignment_02\assignment_02_03.cpp(110): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+  assignment_02.vcxproj -> c:\users\user\documents\visual studio 2015\Projects\assignment_02\Debug\assignment_02.exe
+  assignment_02.vcxproj -> c:\users\user\documents\visual studio 2015\Projects\assignment_02\Debug\assignment_02.pdb (Full PDB)

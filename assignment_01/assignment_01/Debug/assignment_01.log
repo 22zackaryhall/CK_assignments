@@ -1,0 +1,5 @@
+﻿  assignment04_CmToPeet.cpp
+c:\users\user\documents\visual studio 2015\projects\assignment_01\assignment_01\assignment04_cmtopeet.cpp(81): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+  assignment_01.vcxproj -> C:\Users\user\Documents\Visual Studio 2015\Projects\assignment_01\Debug\assignment_01.exe
+  assignment_01.vcxproj -> C:\Users\user\Documents\Visual Studio 2015\Projects\assignment_01\Debug\assignment_01.pdb (Full PDB)
