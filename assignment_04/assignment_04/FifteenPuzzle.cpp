@@ -5,16 +5,47 @@
 #include <string.h>
 #include <time.h>
 
-#define DIM 4
-
-
 enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 
+int playFifteenPuzzle();
 static int DirKey[4] = { Left, Right, Up, Down };
-static int map[DIM][DIM];
+static int map[5][5];
 static int x, y;
 static int nMove;
+static int DIM = 5;
+static int Err = false;
 static clock_t tStart;
+
+//SetDIM = 퍼즐의 크기를 지정하기 위한 함수
+int SetDIM() {
+
+	int Choice = 0;
+
+	cout << "숫자 퍼즐 게임입니다." << endl <<
+		"가로 세로 3~5까지의 정사각형 퍼즐을 선택해 주세요." << endl << endl <<
+		"[1] 3x3 숫자 퍼즐" << endl <<
+		"[2] 4x4 숫자 퍼즐" << endl <<
+		"[3] 5x5 숫자 퍼즐" << endl << endl <<
+		"선택 : ";
+
+	while (true) {
+
+		Err = false;
+
+		cin >> Choice;
+
+		switch (Choice) {
+		case 1: return map[3][3], DIM = 3; break;
+		case 2: return map[4][4], DIM = 4; break;
+		case 3: return map[5][5], DIM = 5; break;
+		default: cout << "올바르지 않은 입력입니다. 재 입력 바랍니다.(1~3)" << endl; Err = true;
+		}
+
+	}
+
+	return 0;
+
+}
 
 void init() {
 	for (int i = 0; i < DIM*DIM; i++) {

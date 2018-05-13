@@ -1,11 +1,3 @@
-﻿  FifteenPuzzle.cpp
-c:\users\user\documents\visual studio 2015\projects\assignment_04\assignment_04\fifteenpuzzle.cpp(26): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\user\documents\visual studio 2015\projects\assignment_04\assignment_04\fifteenpuzzle.cpp(99): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-c:\users\user\documents\visual studio 2015\projects\assignment_04\assignment_04\fifteenpuzzle.cpp(114): warning C4551: 함수 호출에 인수 목록이 없습니다.
-c:\users\user\documents\visual studio 2015\projects\assignment_04\assignment_04\fifteenpuzzle.cpp(107): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-c:\users\user\documents\visual studio 2015\projects\assignment_04\assignment_04\fifteenpuzzle.cpp(110): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-  assignment_04.vcxproj -> c:\users\user\documents\visual studio 2015\Projects\assignment_04\Debug\assignment_04.exe
-  assignment_04.vcxproj -> c:\users\user\documents\visual studio 2015\Projects\assignment_04\Debug\assignment_04.pdb (Full PDB)
+﻿  4x4Main.cpp
+  assignment_04.vcxproj -> C:\Users\user\Documents\Visual Studio 2015\Projects\assignment_04\Debug\assignment_04.exe
+  assignment_04.vcxproj -> C:\Users\user\Documents\Visual Studio 2015\Projects\assignment_04\Debug\assignment_04.pdb (Full PDB)
