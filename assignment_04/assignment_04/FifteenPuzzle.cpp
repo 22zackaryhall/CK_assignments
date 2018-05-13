@@ -4,19 +4,35 @@
 #include <conio.h>
 #include <string.h>
 #include <time.h>
-
-#define DIM 4
-
+#define DIM3 3
+#define DIM4 4
+#define DIM5 5
 
 enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 
+static int map[DIM4][DIM4];
+static int DIM = 4;
 static int DirKey[4] = { Left, Right, Up, Down };
-static int map[DIM][DIM];
 static int x, y;
 static int nMove;
 static clock_t tStart;
 
+void SetDim() {
+	int x;
+	printf("맵의 크기를 정해주세요(3,4,5) : ");
+
+	while (true) {
+		scanf("%d", &x);
+		if (x == 3) { static int map[DIM3][DIM3]; DIM = 3; return; }
+		else if (x == 4) { static int map[DIM4][DIM4]; DIM = 4; return; }
+		else if (x == 5) { static int map[DIM5][DIM5]; DIM = 5; return; }
+		else printf("잘못된 입력입니다 다시 입력하세요(3,4,5) : ");
+	}
+}
+
 void init() {
+	SetDim();
+
 	for (int i = 0; i < DIM*DIM; i++) {
 		map[i / DIM][i % DIM] = i + 1;
 	}
