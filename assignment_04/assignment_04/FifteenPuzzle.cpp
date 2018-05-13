@@ -10,8 +10,8 @@
 
 enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 
-static int map[DIM4][DIM4];
-static int DIM = 4;
+static int map[DIM5][DIM5];
+static int DIM = 5;
 static int DirKey[4] = { Left, Right, Up, Down };
 static int x, y;
 static int nMove;
