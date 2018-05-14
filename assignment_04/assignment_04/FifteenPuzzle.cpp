@@ -11,9 +11,12 @@ enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 static int map[5][5]; // 가장 큰 값(5)이 초기값이 돼야함;  
 static int DIM = 5; //마찬가지
 static int DirKey[4] = { Left, Right, Up, Down };
+static int RType = 1;
 static int x, y;
 static int nMove;
-static char Record[301]; //replay.txt 파일의 크기를 최소화 할 목적이 있음
+static bool IsReady = false;
+static char Record1[501]; //replay.txt 파일의 크기를 최소화 할 목적이 있음
+static char Record2[500][25]; //이건 그런거 없다
 static clock_t tStart;
 
 bool IsRePlay() {
@@ -25,6 +28,17 @@ bool IsRePlay() {
 		if (x == 'y') return true;
 		else if (x == 'n') return false;
  	}
+}
+
+int SetSaveType() {
+	char x;
+	printf("리플레이 저장 타입을 골라주세요 (1, 2)\n");
+
+	while (true) {
+		x = getch();
+		if (x == 49) return 1;
+		else if (x == 50) return 2;
+	}
 }
 
 void SetDim() { // 맵 크기를 설정하는 함수
@@ -75,14 +89,16 @@ static void display() {
 	printf("\n\t이동 횟수:%6d\n\t소요 시간:%6.1f\n\n", nMove, d);
 }
 
-static void record(int dir) {
-	char x;
-	if (dir == Right) x = '1'; //값 변환
-	else if (dir == Left) x = '2';
-	else if (dir == Up) x = '3';
-	else x = '4';
-	strcat(Record, );
-	Record[nMove] = x;
+static void record(int dir) { 
+	if (!IsReady) { //셔플중에 데이터가 저장되는것 방지
+		Record1[nMove] = dir; //방향키 저장(저장 타입1)
+		for (int i = 0; i < DIM; i++) { //맵저장 (저장 타입2) 
+			for (int j = 0; j < DIM; j++) {
+				Record2[nMove][DIM * i + j] = map[i][j];
+			}
+		}
+	}
+
 	nMove++;
 }
 
@@ -139,10 +155,11 @@ static int getDirKey() {
 }
 
 int playFifteenPuzzle() {
-	if (IsRePlay()) { 
+	if (IsRePlay()) {
 		showRanking();
 		return 0;
 	}
+	else SetSaveType();
 	init();
 	display();
 	printRanking();
@@ -150,9 +167,11 @@ int playFifteenPuzzle() {
 	getche();
 	shuffle(10);
 	printf("\n 게임이 시작됩니다...");
+	printf("\n ");
 	getche();
 
 	nMove = 0;
+	IsReady = true;
 	tStart = clock();
 	while (!isDone()) {
 		move(getDirKey());
