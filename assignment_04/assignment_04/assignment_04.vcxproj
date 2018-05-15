@@ -145,6 +145,9 @@
     <ClCompile Include="4x4Main.cpp" />
     <ClCompile Include="FifteenPuzzle.cpp" />
     <ClCompile Include="Ranking.cpp" />
+    <ClCompile Include="Replay.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ranking.h" />

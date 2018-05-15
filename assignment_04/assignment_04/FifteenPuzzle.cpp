@@ -9,12 +9,14 @@ enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 
 int playFifteenPuzzle();
 static int DirKey[4] = { Left, Right, Up, Down };
-static int map[5][5];
-static int x, y;
-static int nMove;
-static int DIM = 5;
-static int Err = false;
-static clock_t tStart;
+static int map[5][5];	//퍼즐의 최대 크기만큼 초기값 선언
+static int R_getDirKey[1000];	//리플레이 재생을 위해 플레이를 저장하기 위한 배열
+static int ReplayShuffle[100];	//리플레이에 사용될 셔플값을 저장할 배열
+static bool isReplay = false;	//리플레이인지 확인하기 위한 변수
+static int x, y;		//빈칸의 위치
+static int nMove;		//이동 회수
+static int DIM = 5;		//이후 선택에 의해 변경될 퍼즐의 크기의 초기값
+static clock_t tStart;	//시작 시간
 
 //SetDIM = 퍼즐의 크기를 지정하기 위한 함수
 int SetDIM() {
@@ -25,12 +27,11 @@ int SetDIM() {
 		"가로 세로 3~5까지의 정사각형 퍼즐을 선택해 주세요." << endl << endl <<
 		"[1] 3x3 숫자 퍼즐" << endl <<
 		"[2] 4x4 숫자 퍼즐" << endl <<
-		"[3] 5x5 숫자 퍼즐" << endl << endl <<
+		"[3] 5x5 숫자 퍼즐" << endl << 
+		"[4] 이전 플레이를 재생 (replay)" << endl << endl <<
 		"선택 : ";
 
 	while (true) {
-
-		Err = false;
 
 		cin >> Choice;
 
@@ -38,7 +39,10 @@ int SetDIM() {
 		case 1: return map[3][3], DIM = 3; break;
 		case 2: return map[4][4], DIM = 4; break;
 		case 3: return map[5][5], DIM = 5; break;
-		default: cout << "올바르지 않은 입력입니다. 재 입력 바랍니다.(1~3)" << endl; Err = true;
+		case 4: return isReplay = true,
+			DIM = loadReplayDIM("replay.replay"),
+			map[DIM][DIM]; break;
+		default: cout << "올바르지 않은 입력입니다. 재 입력 바랍니다.(1~4)" << endl;
 		}
 
 	}
@@ -98,17 +102,40 @@ static bool move(int dir) {
 	else {
 		return false;
 	}
-
+	
 	nMove++;
+	R_getDirKey[nMove] = dir;	//리플레이
 	return true;
 }
 
 static void shuffle(int nShuffle) {
+
+	int key;
+
 	for (int i = 0; i < nShuffle; i++) {
-		int key = DirKey[rand() % 4];
-		if (move(key) == false) {
-			i--;
-			continue;
+		if (isReplay == false )
+		{ 
+			key = DirKey[rand() % 4];
+
+			if (move(key) == false) {
+				i--;
+				continue;
+			}
+			else {
+				ReplayShuffle[i] = key;		// 리플레이
+			}
+		}
+		else // (isReplay != false)
+		{
+			ifstream R_fin;
+			R_fin.open("replay.replay");
+			if (R_fin.good() == false) {}
+			else {
+				for (int i = 0; i <= nShuffle; i++) {
+					key = loadReplayShuffle("replay.replay",i);
+				}
+			}
+			R_fin.close();
 		}
 		display();
 		Sleep(50);
@@ -126,7 +153,7 @@ static bool isDone() {
 	return true;
 }
 
-static int getDirKey() { 
+static int getDirKey() {
 	return getche() == 224 ? getche() : 0; 
 }
 
@@ -142,11 +169,30 @@ int playFifteenPuzzle() {
 
 	nMove = 0;
 	tStart = clock();
-	while (!isDone()) {
-		move(getDirKey());
-		display();
+
+	if (isReplay == false) {
+		while (!isDone()) {
+			move(getDirKey());
+			display();
+		}
 	}
-	clock_t t1 = clock();
-	double d = (double)(t1 - tStart) / CLOCKS_PER_SEC;
-	return addRanking(nMove, d);
+	else {
+		int i = 0;
+		while (!isDone()) {
+			move(R_getDirKey[i]);
+			display();
+			i++;
+		}
+	}
+	if (isReplay == true) {
+		storeReplay("replay.replay", DIM, R_getDirKey, ReplayShuffle);
+	}
+	else {
+		printRanking();
+		storeRanking("ranking.txt");
+	}
+
+		clock_t t1 = clock();
+		double d = (double)(t1 - tStart) / CLOCKS_PER_SEC;
+		return addRanking(nMove, d);
 }
