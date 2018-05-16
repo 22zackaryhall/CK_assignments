@@ -1,15 +1,1 @@
-﻿  FifteenPuzzle.cpp
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(27): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(38): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(49): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(68): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(154): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(167): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-d:\$codding\ck_assignments\assignment_04\assignment_04\fifteenpuzzle.cpp(171): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getche. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(455): note: 'getche' 선언을 참조하십시오.
-  assignment_04.vcxproj -> D:\$Codding\CK_assignments\assignment_04\Debug\assignment_04.exe
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".

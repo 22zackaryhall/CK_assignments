@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <string.h>
 #include <time.h>
+#define MAXTURN 500 //리플레이 최대저장 턴
 
 enum Direction { Left = 75, Right = 77, Up = 72, Down = 80 };
 
@@ -15,8 +16,8 @@ static int RType = 1;
 static int x, y;
 static int nMove;
 static bool IsReady = false;
-static char Record1[501]; //replay.txt 파일의 크기를 최소화 할 목적이 있음
-static char Record2[500][25]; //이건 그런거 없다
+static char Record1[MAXTURN + 1]; //replay.txt 파일의 크기를 최소화 할 목적이 있음
+static char Record2[MAXTURN][25]; //이건 그런거 없다
 static clock_t tStart;
 
 bool IsRePlay() {
@@ -43,7 +44,7 @@ int SetSaveType() {
 
 void SetDim() { // 맵 크기를 설정하는 함수
 	char x;
-	printf("맵의 크기를 정해주세요(2,3,4,5) : ");
+	printf("맵의 크기를 정해주세요 (2,3,4,5) : ");
 
 	while (true) {
 		x = getche();
@@ -90,7 +91,7 @@ static void display() {
 }
 
 static void record(int dir) { 
-	if (!IsReady) { //셔플중에 데이터가 저장되는것 방지
+	if (IsReady) { //셔플중에 데이터가 저장되는것 방지
 		Record1[nMove] = dir; //방향키 저장(저장 타입1)
 		for (int i = 0; i < DIM; i++) { //맵저장 (저장 타입2) 
 			for (int j = 0; j < DIM; j++) {
@@ -100,6 +101,46 @@ static void record(int dir) {
 	}
 
 	nMove++;
+}
+
+static void ReplayMode() { //게임이 끝난 직후의 리플레이
+	int turn = 0, Rmap[5][5];
+	static int maxturn = MAXTURN;
+	char index;
+
+	for (int i = 0; i <= MAXTURN; i++) { // c에 이런 함수가 있을지 알 수 없어서 구현했다. 
+		if (Record2[i][0] == 0 && Record2[i][1] == 0) { // 데이터가 없는 배열은 2개이상의 초기화 되지 않은값(0)이 들어있을 것.
+			maxturn = i - 1;
+			break;
+		}
+	}
+
+	do {
+		system("cls");
+		printf("\n\tFifteen Puzzle\n\t");
+		printf("---------------\n\t");
+		for (int i = 0; i < DIM; i++) {
+			for (int j = 0; j < DIM; j++) {
+				Rmap[i][j] = Record2[turn][DIM * i + j];
+			}
+		}
+		for (int r = 0; r < DIM; r++) {
+			for (int c = 0; c < DIM; c++) {
+				if (Rmap[r][c] > 0) {
+					printf("%3d", Rmap[r][c]);
+				}
+				else { printf("   "); }
+			}
+			printf("\n\t");
+		}
+		printf("---------------\n\t");
+		printf("\n[%d / %d]\n종료하려면 q를 입력하세요", turn, maxturn);
+
+		index = getch();
+		if (index == 75 && turn > 0) turn--;
+		else if (index == 77 && turn < maxturn) turn++;
+
+	} while (index != 113 || index != NULL);
 }
 
 static bool move(int dir) {
@@ -119,6 +160,7 @@ static bool move(int dir) {
 		map[y][x] = map[y - 1][x];
 		map[--y][x] = 0;
 	}
+	else if (dir == 1); // 그냥 통과(첫턴 저장용)
 	else {
 		return false;
 	}
@@ -155,23 +197,23 @@ static int getDirKey() {
 }
 
 int playFifteenPuzzle() {
-	if (IsRePlay()) {
+	/*if (IsRePlay()) {
 		showRanking();
 		return 0;
 	}
-	else SetSaveType();
+	else SetSaveType();*/
 	init();
 	display();
 	printRanking();
 	printf("\n 퍼즐을 섞어주세요(엔터)...");
 	getche();
-	shuffle(10);
+	shuffle(1);
 	printf("\n 게임이 시작됩니다...");
-	printf("\n ");
 	getche();
 
 	nMove = 0;
 	IsReady = true;
+	record(1);
 	tStart = clock();
 	while (!isDone()) {
 		move(getDirKey());
@@ -179,5 +221,8 @@ int playFifteenPuzzle() {
 	}
 	clock_t t1 = clock();
 	double d = (double)(t1 - tStart) / CLOCKS_PER_SEC;
+	if (IsRePlay()) {
+		ReplayMode();
+	}
 	return addRanking(nMove, d);
 }

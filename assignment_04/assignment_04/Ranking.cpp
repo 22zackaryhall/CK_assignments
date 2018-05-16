@@ -63,7 +63,7 @@ int addRanking(int nMove, double tElap) {
 		}
 		MVP[pos].nMove = nMove;
 		MVP[pos].tElapsed = tElap;
-		printf(" %d위입니다. 이름을 입력하세요: ", pos + 1);
+		printf("%d위입니다. 이름을 입력하세요: ", pos + 1);
 		scanf("%s", MVP[pos].name);
 
 		return pos + 1;
