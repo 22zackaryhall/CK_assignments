@@ -106,41 +106,102 @@ static void record(int dir) {
 static void ReplayMode() { //게임이 끝난 직후의 리플레이
 	int turn = 0, Rmap[5][5];
 	static int maxturn = MAXTURN;
-	char index;
+	char input;
 
-	for (int i = 0; i <= MAXTURN; i++) { // c에 이런 함수가 있을지 알 수 없어서 구현했다. 
-		if (Record2[i][0] == 0 && Record2[i][1] == 0) { // 데이터가 없는 배열은 2개이상의 초기화 되지 않은값(0)이 들어있을 것.
-			maxturn = i - 1;
-			break;
-		}
-	}
-
-	do {
-		system("cls");
-		printf("\n\tFifteen Puzzle\n\t");
-		printf("---------------\n\t");
-		for (int i = 0; i < DIM; i++) {
-			for (int j = 0; j < DIM; j++) {
-				Rmap[i][j] = Record2[turn][DIM * i + j];
+	if (Record1[0] != 0) { //방향키 저장(저장 타입1)
+		for (int i = 0; i < MAXTURN; i++) { //최대턴을 구하는 함수
+			if (Record1[i] == 0) {
+				maxturn = i - 1;
+				break;
 			}
 		}
-		for (int r = 0; r < DIM; r++) {
-			for (int c = 0; c < DIM; c++) {
-				if (Rmap[r][c] > 0) {
-					printf("%3d", Rmap[r][c]);
+
+		for (int i = 0; i < DIM*DIM; i++) {
+			Rmap[i / DIM][i % DIM] = i + 1;
+		}
+		Rmap[DIM - 1][DIM - 1] = 0;
+		x = DIM - 1; y = DIM - 1;
+
+		do {
+			system("cls");
+			for (int i = maxturn; i > turn; i--) {
+				printf("for\n");
+				if (Record1[i] == Right && x < DIM - 1) {	 //키가 오른쪽이면
+					Rmap[y][x] = Rmap[y][x + 1];			 //왼쪽으로 이동
+					Rmap[y][++x] = 0;
+					printf("RIGHT\n");
 				}
-				else { printf("   "); }
+				else if (Record1[i] == Left && x > 0) {
+					Rmap[y][x] = Rmap[y][x - 1];
+					Rmap[y][--x] = 0;
+					printf("LEFT\n");
+				}
+				else if (Record1[i] == Up && y > 0) {
+					Rmap[y][x] = Rmap[y - 1][x];
+					Rmap[--y][x] = 0;
+					printf("UP\n");
+				}
+				else if (Record1[i] == Down && y < DIM - 1) {
+					Rmap[y][x] = Rmap[y + 1][x];
+					Rmap[++y][x] = 0;
+					printf("DOWN\n");
+				}
 			}
-			printf("\n\t");
+			printf("\n\t Replay Mode 1\n\t");
+			printf("---------------\n\t");
+			for (int r = 0; r < DIM; r++) {
+				for (int c = 0; c < DIM; c++) {
+					if (Rmap[r][c] > 0) {
+						printf("%3d", Rmap[r][c]);
+					}
+					else { printf("   "); }
+				}
+				printf("\n\t");
+			}
+			printf("---------------\n\t");
+			printf("\n[%d / %d]\n종료하려면 q를 입력하세요", turn, maxturn);
+
+			input = getch();
+			if (input == 75 && turn > 0) turn--;
+			else if (input == 77 && turn < maxturn) turn++;
+
+		} while (input != 113 || input != NULL);
+	}
+	else { //맵저장 (저장 타입2) 
+		for (int i = 0; i < MAXTURN; i++) {
+			if (Record2[i][0] == 0 && Record2[i][1] == 0) { // 데이터가 없는 배열(int형)안엔 초기화 되지 않은값(0)이 들어있다.
+				maxturn = i - 1;
+				break;
+			}
 		}
-		printf("---------------\n\t");
-		printf("\n[%d / %d]\n종료하려면 q를 입력하세요", turn, maxturn);
 
-		index = getch();
-		if (index == 75 && turn > 0) turn--;
-		else if (index == 77 && turn < maxturn) turn++;
+		do {
+			system("cls");
+			printf("\n\t Replay Mode 2\n\t");
+			printf("---------------\n\t");
+			for (int i = 0; i < DIM; i++) {
+				for (int j = 0; j < DIM; j++) {
+					Rmap[i][j] = Record2[turn][DIM * i + j];
+				}
+			}
+			for (int r = 0; r < DIM; r++) {
+				for (int c = 0; c < DIM; c++) {
+					if (Rmap[r][c] > 0) {
+						printf("%3d", Rmap[r][c]);
+					}
+					else { printf("   "); }
+				}
+				printf("\n\t");
+			}
+			printf("---------------\n\t");
+			printf("\n[%d / %d]\n종료하려면 q를 입력하세요", turn, maxturn);
 
-	} while (index != 113 || index != NULL);
+			input = getch();
+			if (input == 75 && turn > 0) turn--;
+			else if (input == 77 && turn < maxturn) turn++;
+
+		} while (input != 113 || input != NULL);
+	}
 }
 
 static bool move(int dir) {
@@ -207,7 +268,7 @@ int playFifteenPuzzle() {
 	printRanking();
 	printf("\n 퍼즐을 섞어주세요(엔터)...");
 	getche();
-	shuffle(1);
+	shuffle(3);
 	printf("\n 게임이 시작됩니다...");
 	getche();
 
