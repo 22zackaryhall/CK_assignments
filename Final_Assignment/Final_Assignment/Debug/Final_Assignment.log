@@ -1,0 +1,5 @@
+﻿  SRPG_characters.cpp
+d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.cpp(21): error C2440: '초기화 중': 'initializer list'에서 'LifeEntity'(으)로 변환할 수 없습니다.
+  d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.cpp(21): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.cpp(40): error C2440: '초기화 중': 'initializer list'에서 'LifeEntity'(으)로 변환할 수 없습니다.
+  d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.cpp(40): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
