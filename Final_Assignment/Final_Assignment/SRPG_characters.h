@@ -1,5 +1,6 @@
 typedef struct LifeEntity {
 
+}LifeEntity;
 	typedef struct Player {
 
 		char name[16];
@@ -21,7 +22,7 @@ typedef struct LifeEntity {
 		bool isUndead = false;
 		bool dead = false;
 		bool isCorrupted = false;
-	} Player;
+	} PLAYER;
 
 	typedef struct Enemy {
 
@@ -44,9 +45,7 @@ typedef struct LifeEntity {
 		bool isUndead = false;
 		bool dead = false;
 		bool isCorrupted = true;
-	}Enemy;
+	}ENEMY;
 	
-	static Player player;
-	static Enemy enemy;
-
-}LifeEntity;
+	static PLAYER player;
+	static ENEMY enemy;

@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <iomanip>
 //#include "SRPG_characters.h"
+#define DEBUG
 
 enum lvl {l1 = 20, l2 = 50, l3 = 100, l4 = 150, l5 = 200, l6 = 250, l7 = 300, l8 = 350, l9 = 400, lA = 500 };
 

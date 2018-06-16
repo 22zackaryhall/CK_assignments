@@ -4,11 +4,13 @@
 int SRPG_Prologue() {
 	while (true) {
 		short ans;
+		char name[16];
 		cout << "AI의 이름을 설정해 주세요.(영어 16자 한글 8자 이하)" << endl <<
 			"AI의 이름 : ";
-		cin >> LifeEntity::player.name;
+		cin >> name;
+		strcpy(player.name,name);
 		rewind(stdin);
-		cout << endl << endl << "입력하신 AI의 이름은 '" << LifeEntity::player.name << "' 이(가) 맞습니까?" << endl;
+		cout << endl << endl << "입력하신 AI의 이름은 '" << player.name << "' 이(가) 맞습니까?" << endl;
 		cout << "[1] 예" << endl << "[2] 아니오" << endl << "입력 : ";
 		cin >> ans;
 		if (cin.fail()) {
@@ -29,8 +31,13 @@ int SRPG_Prologue() {
 	system("cls");
 	return 0;
 }
+#ifdef DEBUG
+int SRPG_1st_sence() {
+	return 0;
+};
+#endif // DEBUG
 
-
+#ifdef RELEASE
 int SRPG_1st_sence() {
 	system("cls");
 	cout << "시동중...";
@@ -46,16 +53,16 @@ int SRPG_1st_sence() {
 	_sleep(1000);
 	cout << endl << endl << "자가 스캔 중...";
 	_sleep(3000);
-	cout << endl << "AI - " << LifeEntity::player.name;
+	cout << endl << "AI - " << player.name;
 	_sleep(1000);
-	cout << endl << "HP - " << LifeEntity::player.HP << "/" << LifeEntity::player.MAX_HP;
+	cout << endl << "HP - " << player.HP << "/" << player.MAX_HP;
 	_sleep(1000);
-	cout << endl << "MP - " << LifeEntity::player.MP << "/" << LifeEntity::player.MAX_MP;
+	cout << endl << "MP - " << player.MP << "/" << player.MAX_MP;
 	_sleep(1000);
-	cout << endl << "Exp - " << LifeEntity::player.Exp << "/" << LifeEntity::player.MAX_Exp;
+	cout << endl << "Exp - " << player.Exp << "/" << player.MAX_Exp;
 	_sleep(1000);
 	cout << endl << "Condition - ";
-	isCorrupted(LifeEntity::player.isCorrupted);
+	isCorrupted(player.isCorrupted);
 	cout << endl << endl;
 	_sleep(1000);
 	cout << "스캔 결과 - 주 저장소 수리 필요.";
@@ -63,7 +70,7 @@ int SRPG_1st_sence() {
 	cout << endl << "개체 상태 양호하지 못함." << endl << 
 		"수리 및 업그레이드가 권장됨.";
 	_sleep(1000);
-	cout << endl << "기체 제어권을 시스템에서 '" << LifeEntity::player.name << "' 으로 전환.";
+	cout << endl << "기체 제어권을 시스템에서 '" << player.name << "' 으로 전환.";
 	_sleep(2000);
 	cout << endl << endl << "무기를 가진 적대적 대상과 조우." << endl <<
 		"엔터(Enter)키를 눌러 교전합니다";
@@ -72,6 +79,7 @@ int SRPG_1st_sence() {
 	system("cls");
 	return 0;
 }
+#endif // RELEASE
 
 int SRPG_2nd_sence() {
 
