@@ -1,4 +1,5 @@
 #include "SRPG.h"
+#include "SRPG_characters.h"
 
 
 int getNums(const int MAX) {
@@ -36,9 +37,9 @@ void isCorrupted(bool in) {
 
 void bAttack() {
 
-	cout << player.name << "이(가) " << enemy.name << "을(를) 공격!" << endl;
-	enemy.HP -= ((player.strength * 2) - (enemy.defence));
-	cout << enemy.name << "은(는) " << ((player.strength * 2) - (enemy.defence)) << "만큼의 데미지를 입었다!" << endl;
+	cout << LifeEntity::player.name << "이(가) " << LifeEntity::enemy.name << "을(를) 공격!" << endl;
+	LifeEntity::enemy.HP -= ((LifeEntity::player.strength * 2) - (LifeEntity::enemy.defence));
+	cout << LifeEntity::enemy.name << "은(는) " << ((LifeEntity::player.strength * 2) - (LifeEntity::enemy.defence)) << "만큼의 데미지를 입었다!" << endl;
 
 }
 
@@ -67,8 +68,8 @@ void Battle() {
 
 	system("cls");
 	cout << "! 교전 !" << endl << endl;
-	while (enemy.HP > 0 || player.HP > 0 || battleEnd != true) {
-		cout << " HP " << player.HP << " / " << player.MAX_HP << "   MP " << player.MP << " / " << player.MAX_MP << endl;
+	while (LifeEntity::enemy.HP > 0 || LifeEntity::player.HP > 0 || battleEnd != true) {
+		cout << " HP " << LifeEntity::player.HP << " / " << LifeEntity::player.MAX_HP << "   MP " << LifeEntity::player.MP << " / " << LifeEntity::player.MAX_MP << endl;
 		cout << "당신의 차례 입니다." << endl <<
 			"[1] 공격   [2] 방어   [3] 아이템   [4] 도망" << endl;
 		pChoice = getNums(4);

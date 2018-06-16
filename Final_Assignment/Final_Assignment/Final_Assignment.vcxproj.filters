@@ -24,15 +24,15 @@
     <ClCompile Include="SRPG_Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SRPG_characters.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="SRPG_functions.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRPG.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SRPG_characters.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
