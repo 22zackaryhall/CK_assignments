@@ -1,6 +1,9 @@
 #include "SRPG.h"
 #include "SRPG_characters.h"
 
+struct Player player;
+struct Enemy enemy;
+
 int SRPG_Prologue() {
 	while (true) {
 		short ans;
@@ -32,9 +35,12 @@ int SRPG_Prologue() {
 	return 0;
 }
 #ifdef DEBUG
+
 int SRPG_1st_sence() {
+
 	return 0;
 };
+
 #endif // DEBUG
 
 #ifdef RELEASE
@@ -53,7 +59,11 @@ int SRPG_1st_sence() {
 	_sleep(1000);
 	cout << endl << endl << "자가 스캔 중...";
 	_sleep(3000);
+	cout << endl << "소속 - LfA.Rad";
+	_sleep(1000);
 	cout << endl << "AI - " << player.name;
+	_sleep(1000);
+	cout << endl << "Lv - " << player.Level;
 	_sleep(1000);
 	cout << endl << "HP - " << player.HP << "/" << player.MAX_HP;
 	_sleep(1000);
@@ -83,8 +93,21 @@ int SRPG_1st_sence() {
 
 int SRPG_2nd_sence() {
 
+	tt1Reset();
 	Battle();
 
+	cout << endl << "교전 대상에게서 로그데이터를 수집하였습니다." << endl;
+	_sleep(1500);
+	cout << endl << "로그데이터 분석 결과 멀지않은 지점에 LfA 기지가 있는것을 확인 하였습니다." << endl;
+	_sleep(1500);
+	cout << endl << "최우선 목표 - 확인된 LfA 기지의 좌표로 이동" << endl;
+	_sleep(1500);
+
+	walking(5,1);
+
+	LfABaseFirst();
+
+	CORDLINEEND();
 	return 0;
 }
 

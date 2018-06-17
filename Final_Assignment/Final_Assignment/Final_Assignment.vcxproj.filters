@@ -27,6 +27,9 @@
     <ClCompile Include="SRPG_functions.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="SRPG_characters.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SRPG.h">

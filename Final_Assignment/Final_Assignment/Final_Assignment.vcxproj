@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SRPG_characters.cpp" />
     <ClCompile Include="SRPG_Main.cpp" />
     <ClCompile Include="SRPG_game_stem.cpp" />
     <ClCompile Include="SRPG_functions.cpp" />

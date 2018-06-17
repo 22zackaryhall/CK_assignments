@@ -1,40 +1,73 @@
 #include "SRPG.h"
+#include "SRPG_characters.h"
 
+extern char 
+*ename;
+extern short 
+eMHP, 
+eHP, 
+eMMP, 
+eMP, 
+eSTR, 
+eAGL, 
+eDEF,
+eEXP;
+extern bool
+eUnd,
+edead,
+eCor,
+turns;
 
-Player player {
-	player.name[16],
-	player.MAX_HP = 20,
-	player.HP = 20,
-	player.MAX_MP = 10,
-	player.MP = 10,
-	player.MAX_Exp = 20,
-	player.Exp = 0,
+void attackerReset() {
 
-	player.strength = 2,
-	player.agility = 2,
-	player.defence = 1,
+	ename = "어태커";
+	eMHP = 60;
+	eHP = 60;
+	eMMP = 20;
+	eMP = 20;
+	eSTR = 5;
+	eAGL = 5;
+	eDEF = 3;
+	eUnd = false;
+	edead = false;
+	eCor = false;
+	eEXP = 50;
+	turns = false;
 
-	//소속 및 상태
-	player.isUndead = false,
-	player.dead = false,
-	player.isCorrupted = false
-};
+}
 
-Enemy enemy = {
-	enemy.name[16],	
-	enemy.MAX_HP = 20,
-	enemy.HP = 20,
-	enemy.MAX_MP = 10,
-	enemy.MP = 10,
-	enemy.MAX_Exp = 20,
-	enemy.Exp = 0,
+void tt2Reset() {
 
-	enemy.strength = 2,
-	enemy.agility = 2,
-	enemy.defence = 1,
+	ename = "공격적 기계";
+	eMHP = 30;
+	eHP = 30;
+	eMMP = 10;
+	eMP = 10;
+	eSTR = 3;
+	eAGL = 3;
+	eDEF = 2;
+	eUnd = false;
+	edead = false;
+	eCor = false;
+	eEXP = 20;
+	turns = true;
 
-	//소속 및 상태
-	enemy.isUndead = false,
-	enemy.dead = false,
-	enemy.isCorrupted = false
-};
+}
+
+void tt1Reset() {
+
+	ename = "적대적 기계";
+	eMHP = 20;
+	eHP = 20;
+	eMMP = 10;
+	eMP = 10;
+	eSTR = 2;
+	eAGL = 2;
+	eDEF = 1;
+	eUnd = false;
+	edead = false;
+	eCor = false;
+	eEXP = 20;
+	turns = true;
+
+}

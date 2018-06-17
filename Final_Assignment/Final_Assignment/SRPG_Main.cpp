@@ -1,6 +1,8 @@
 #include "SRPG.h"
+#include "SRPG_characters.h"
 
 void main() {
+	srand((unsigned int)time(NULL));
 	system("mode con:cols=60 lines=30");
 	while (true) { 
 		cout << "\t이 게임은 'Consolas' 폰트에 최적화 되어있습니다." << endl << endl << endl << endl <<

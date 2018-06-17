@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <iomanip>
+#include <cstdlib>
 //#include "SRPG_characters.h"
 #define DEBUG
 
@@ -19,3 +20,12 @@ extern int SRPG_2nd_sence();
 extern int getNums(const int MAX);
 extern void isCorrupted(bool in);
 extern void Battle();
+extern void CORDLINEEND();
+extern void LfABaseFirst();
+extern void walking(short Distance, short howmany);
+
+extern void tt1Reset();
+extern void tt2Reset();
+extern void attackerReset();
+
+//void enemyReset();
