@@ -1,13 +1,38 @@
 #include "SRPG.h"
 #include "SRPG_characters.h"
 
-static char *pname = player.name;
-char *ename = enemy.name;
-static short pHP = player.HP, pMHP = player.MAX_HP, pMP = player.MP, pMMP = player.MAX_MP, pSTR = player.strength, pAGL = player.agility, pDEF = player.defence, pLV = player.Level,pMEXP = player.MAX_Exp, pEXP = player.Exp;
-static bool pUnd = player.isUndead, pdead = player.dead, pCor = player.isCorrupted, ispDEFup = false;
-short eHP = enemy.HP, eMHP = enemy.MAX_HP, eMP = enemy.MP, eMMP = enemy.MAX_MP, eSTR = enemy.strength, eAGL = enemy.agility, eDEF = enemy.defence, eEXP = enemy.Exp;
-bool eUnd = enemy.isUndead, edead = enemy.dead, eCor = enemy.isCorrupted, iseDEFup = false;
-bool turns = true;
+extern char
+*pname,
+*ename;
+extern short
+pMHP,
+pHP,
+pMMP,
+pMP,
+pMEXP,
+pEXP,
+pSTR,
+pAGL,
+pDEF,
+pLV,
+eMHP,
+eHP,
+eMMP,
+eMP,
+eSTR,
+eAGL,
+eDEF,
+eEXP;
+extern bool
+pUnd,
+pdead,
+pCor,
+eUnd,
+edead,
+eCor,
+ispDEFup,
+iseDEFup,
+turns;
 
 int getNums(const int MAX) {
 
@@ -42,13 +67,13 @@ void isCorrupted(bool in) {
 	}
 }
 
-short getEXP(short get) {
+void getEXP(short get) {
 
-	short EXP = pEXP + get;
+	pEXP += get;
 	short SPs = 2;
 
-	if (EXP >= pMEXP) {
-		EXP = pEXP - pMEXP;
+	if (pEXP >= pMEXP) {
+		pEXP -= pMEXP;
 		pLV++;
 		pMEXP += 25;
 		cout << endl << "레벨이 올랐습니다!" << endl;
@@ -62,7 +87,6 @@ short getEXP(short get) {
 			}
 		}
 	}
-	return EXP;
 }
 
 short isBattleover() {
@@ -90,12 +114,20 @@ void CORDLINEEND() {
 }
 
 void bAttack(bool turn) {
+	short temp;
 	switch (turn) {
 	case true:
 		cout << endl << pname << "이(가) " << ename << "을(를) 공격!" << endl;
-		eHP -= ((pSTR * 2) - (eDEF));
+		temp = ((pSTR * 2) - (eDEF));
+		eHP -= temp;
+		if (eHP < 0) {
+			eHP = 0;
+		}
+		if (((pSTR * 2) - (eDEF)) <= 0) {
+			temp = 1;
+		}
 		_sleep(1000);
-		cout << endl << ename << "은(는) " << ((pSTR * 2) - (eDEF)) << "만큼의 데미지를 입었다!" << endl;
+		cout << endl << ename << "은(는) " << temp << "만큼의 데미지를 입었다!" << endl;
 		cout << ename << " HP " << eHP << " / " << eMHP << "   MP " << eMP << " / " << eMMP << endl;
 		_sleep(1000);
 		if (ispDEFup == true) {
@@ -160,7 +192,7 @@ bool bRunaway(bool turn) {
 
 	if (pAGL > eAGL) {
 		temp = rand() % 100;
-		if (temp > 89) {
+		if (temp < 89) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
 			return true;
@@ -168,12 +200,13 @@ bool bRunaway(bool turn) {
 		else {
 			cout << endl << "도주 실패." << endl;
 			_sleep(1000);
+			turns = false;
 			return false;
 		}
 	}
 	else {
 		temp = rand() % 100;
-		if (temp > 74) {
+		if (temp < 54) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
 			return true;
@@ -181,53 +214,23 @@ bool bRunaway(bool turn) {
 		else {
 			cout << endl << "도주 실패." << endl;
 			_sleep(1000);
+			turns = false;
 			return false;
 		}
 	}
 }
-/*
-void enemyReset() {
-	eMHP = enemy.MAX_HP;
-	eMHP += 10;
-	eHP = enemy.HP;
-	eHP += 10;
-	eMMP = enemy.MAX_MP;
-	eMP = enemy.MP;
-	eSTR = enemy.strength;
-	eSTR += 2;
-	eAGL = enemy.agility;
-	eAGL++;
-	eDEF = enemy.defence;
-	eDEF++;
-	eUnd = enemy.isUndead;
-	edead = enemy.dead;
-	eCor = enemy.isCorrupted;
-}
-*/
+
 
 void Battle() {
 
 	int pChoice = 1, eChoice = 1;
 
-	pname;
-	pHP;
-	pMHP;
-	pMP;
-	pMMP;
-	pSTR;
-	pAGL;
-	pDEF;
-	//	pUnd = player.isUndead, pdead = player.dead, pCor = player.isCorrupted;
-//	pname = player.name;
-	//ename = enemy.name;
-//	pHP = player.HP, pMHP = player.MAX_HP, pMP = player.MP, pMMP = player.MAX_MP, pSTR = player.strength, pAGL = player.agility, pDEF = player.defence;
-//	pUnd = player.isUndead, pdead = player.dead, pCor = player.isCorrupted;
-	//eHP = enemy.HP, eMHP = enemy.MAX_HP, eMP = enemy.MP, eMMP = enemy.MAX_MP, eSTR = enemy.strength, eAGL = enemy.agility, eDEF = enemy.defence;
-	//eUnd = enemy.isUndead, edead = enemy.dead, eCor = enemy.isCorrupted;
-
 	bool Runaway = false;
 
 	cout << endl << "! 교전 !" << endl;
+	
+	_sleep(1500);
+
 	do {
 		switch (turns) {
 		case true:
@@ -258,6 +261,7 @@ void Battle() {
 				}
 			}
 		}
+		rewind(stdin);
 	} while (eHP > 0 && pHP > 0 && Runaway == false);
 	cout << endl << "교전 종료" << endl << endl;
 	_sleep(1000);
@@ -265,19 +269,17 @@ void Battle() {
 	if (edead == true) {
 		getEXP(eEXP);
 	}
-	
 	_sleep(1500);
 }
 
 void walking(short Distance, short howmany) {
 
-//	enemyReset();
 	short temp, temp2 = 0;
 	bool way[10];
 	for (int i = 0; i < 10; i++) {
 		way[i] = false;
 	}
-	while(temp2 > howmany){
+	while(temp2 < howmany){
 		temp = ((rand() % Distance));
 		if (way[temp] == false) {
 			way[temp] = true;
@@ -289,7 +291,7 @@ void walking(short Distance, short howmany) {
 		cout << endl << "엔터(Enter)키를 눌러 전진합니다." << endl;
 		getch();
 		rewind(stdin);
-		cout << endl << "목표까지의 거리 " << i + 1 << "/" << Distance << endl;
+		cout << endl << "목표까지 " << i + 1 << "/" << Distance << endl;
 		if (way[i] == true) {
 			tt2Reset();
 			Battle();
@@ -299,15 +301,69 @@ void walking(short Distance, short howmany) {
 
 void LfABaseFirst() {
 	
-	cout << endl << "LfA 기지의 좌표에 도착하였습니다." << endl;
+	cout << endl << "베이스의 좌표에 도착하였습니다." << endl;
 	_sleep(1500);
 	cout << endl << "상당히 위협적인 적대적 신호가 감지됩니다. " << endl;
 	_sleep(1500);
 	cout << endl << "신호가 가까워집니다." << endl;
 	_sleep(2000);
-
 	
 	attackerReset();
 	Battle();
+
+	cout << endl << "아무런 신호도 감지되지 않습니다." << endl;
+	_sleep(1000);
+
+	cout << endl << "현재 위치 식별 완료" << endl;
+	_sleep(1000);
+	
+	LfABase(false);
+
+}
+
+void LfABase(bool isLoad) {
+
+	if (isLoad == true) {
+		system("cls");
+	}
+
+	while (true) {
+
+		cout << endl << "현재 위치 - 해방군 기지";
+		_sleep(1500);
+
+		cout << endl << "무엇을 하시겠습니까?" << endl;
+		_sleep(750);
+		cout << "[1] 순찰" << endl <<
+			"[2] 회복" << endl <<
+			"[3] 상태" << endl <<
+			"[4] 저장" << endl <<
+			"[5] 종료" << endl;
+
+		switch (getNums(5)) {
+		case 1: walking(5, 2); break;
+		case 2: pHP = pMHP;
+			cout << endl << "회복이 완료되었습니다." << endl;
+			_sleep(750);
+			cout << endl << "[" << pname << "] HP " << pHP << " / " << pMHP << "   MP " << pMP << " / " << pMMP << endl;
+			break;
+		case 3: cout << endl << "상태" << endl <<
+			"AI - " << pname << endl <<
+			"LV - " << pLV << endl <<
+			"HP - " << pHP << "/" << pMHP << endl <<
+			"MP - " << pMP << "/" << pMMP << endl <<
+			"STR - " << pSTR << endl <<
+			"AGL - " << pAGL << endl <<
+			"DEF - " << pDEF << endl <<
+			"Exp - " << pEXP << "/" << pMEXP << endl;
+			cout << endl << "엔터(Enter)키 를 누르면 돌아갑니다." << endl;
+			getch();
+			rewind(stdin);
+			break;
+		case 4: saveFile(); break;
+		case 5: exit(0); break;
+		}
+
+	}
 
 }

@@ -45,6 +45,7 @@ int SRPG_1st_sence() {
 
 #ifdef RELEASE
 int SRPG_1st_sence() {
+	PlayerReset();
 	system("cls");
 	cout << "시동중...";
 	_sleep(2000);
@@ -95,12 +96,11 @@ int SRPG_2nd_sence() {
 
 	tt1Reset();
 	Battle();
-
-	cout << endl << "교전 대상에게서 로그데이터를 수집하였습니다." << endl;
+	cout << endl << "전투 중 교전 대상에게서 로그데이터를 수집하였습니다." << endl;
 	_sleep(1500);
-	cout << endl << "로그데이터 분석 결과 멀지않은 지점에 LfA 기지가 있는것을 확인 하였습니다." << endl;
+	cout << endl << "로그데이터 분석 결과 멀지않은 지점에 베이스가 있는것을 확인 하였습니다." << endl;
 	_sleep(1500);
-	cout << endl << "최우선 목표 - 확인된 LfA 기지의 좌표로 이동" << endl;
+	cout << endl << "최우선 목표 - 확인된 베이스의 좌표로 이동" << endl;
 	_sleep(1500);
 
 	walking(5,1);
@@ -108,7 +108,9 @@ int SRPG_2nd_sence() {
 	LfABaseFirst();
 
 	CORDLINEEND();
+
 	return 0;
+
 }
 
 

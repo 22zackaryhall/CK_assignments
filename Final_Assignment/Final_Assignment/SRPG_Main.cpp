@@ -24,7 +24,7 @@ void main() {
 		switch (getNums(4))
 		{
 		case 1: SRPG_page1(); break;
-		case 2:  break;
+		case 2: loadFile(); LfABase(true); break;
 		case 3: SRPG_Credits(); break;
 		default:
 			exit(0);

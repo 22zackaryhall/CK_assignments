@@ -152,6 +152,9 @@
     <ClInclude Include="SRPG.h" />
     <ClInclude Include="SRPG_characters.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="save.bin" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

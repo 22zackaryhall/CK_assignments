@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <iomanip>
 #include <cstdlib>
+#include <fstream>
 //#include "SRPG_characters.h"
 #define DEBUG
 
@@ -22,8 +23,13 @@ extern void isCorrupted(bool in);
 extern void Battle();
 extern void CORDLINEEND();
 extern void LfABaseFirst();
+extern void LfABase(bool isLoad);
 extern void walking(short Distance, short howmany);
 
+extern void saveFile();
+extern void loadFile();
+
+extern void PlayerReset();
 extern void tt1Reset();
 extern void tt2Reset();
 extern void attackerReset();
