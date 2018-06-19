@@ -1,73 +1,119 @@
 ﻿  SRPG_storys.cpp
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(14): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(14): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(100): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(51): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(102): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(53): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(104): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(55): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(136): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(58): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(60): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(62): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(64): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(66): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(68): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(70): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(72): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(74): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(78): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(80): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(83): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(85): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(88): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(100): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(102): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(104): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_storys.cpp(136): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
   SRPG_functions.cpp
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(98): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(98): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(103): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(103): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(114): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(114): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(147): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(147): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(150): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(150): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(173): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(173): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(175): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(175): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(220): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(220): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(240): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(240): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(257): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(257): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(262): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(262): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(271): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(271): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(276): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(276): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(301): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(301): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(338): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(338): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(343): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(343): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(363): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(363): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(376): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(376): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(378): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(378): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(380): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(380): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(386): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(386): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(389): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(389): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(404): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(404): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(407): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(407): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(419): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(419): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(1266): note: '_sleep' 선언을 참조하십시오.
-d:\chungkang\2018 1학년 1학기\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(432): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_functions.cpp(432): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
+  SRPG_game_stem.cpp
+  SRPG_Main.cpp
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
+  SRPG_characters.cpp
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(104): warning C4091: 'extern ': 변수를 선언하지 않으면 'attacker' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(105): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt1' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.h(106): warning C4091: 'extern ': 변수를 선언하지 않으면 'tt2' 왼쪽은 무시됩니다.
+h:\usb\ck\객체지향프로그래밍기초\_assignments\final_assignment\final_assignment\srpg_characters.cpp(48): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note: 'getch' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
-  Final_Assignment.vcxproj -> D:\ChungKang\2018 1학년 1학기\객체지향프로그래밍기초\_Assignments\Final_Assignment\Debug\Final_Assignment.exe
-  Final_Assignment.vcxproj -> D:\ChungKang\2018 1학년 1학기\객체지향프로그래밍기초\_Assignments\Final_Assignment\Debug\Final_Assignment.pdb (Full PDB)
+  LINK : H:\USB\CK\객체지향프로그래밍기초\_Assignments\Final_Assignment\Debug\Final_Assignment.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  Final_Assignment.vcxproj -> H:\USB\CK\객체지향프로그래밍기초\_Assignments\Final_Assignment\Debug\Final_Assignment.exe
+  Final_Assignment.vcxproj -> H:\USB\CK\객체지향프로그래밍기초\_Assignments\Final_Assignment\Debug\Final_Assignment.pdb (Full PDB)

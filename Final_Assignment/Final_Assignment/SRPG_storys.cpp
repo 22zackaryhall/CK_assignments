@@ -68,7 +68,7 @@ int SRPG_1st_sence() {
 	_sleep(1000);
 	cout << endl << "HP - " << player.HP << "/" << player.MAX_HP;
 	_sleep(1000);
-	cout << endl << "MP - " << player.MP << "/" << player.MAX_MP;
+	cout << endl << "MP - " << player.AP << "/" << player.MAX_AP;
 	_sleep(1000);
 	cout << endl << "Exp - " << player.Exp << "/" << player.MAX_Exp;
 	_sleep(1000);
