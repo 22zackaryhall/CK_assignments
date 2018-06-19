@@ -3,11 +3,12 @@
 
 char *pname = player.name;
 char *ename = enemy.name;
-short pHP = player.HP, pMHP = player.MAX_HP, pMP = player.MP, pMMP = player.MAX_MP, pSTR = player.strength, pAGL = player.agility, pDEF = player.defence, pLV = player.Level, pMEXP = player.MAX_Exp, pEXP = player.Exp;
+short pHP = player.HP, pMHP = player.MAX_HP, pAP = player.AP, pMAP = player.MAX_AP, pSTR = player.strength, pAGL = player.agility, pDEF = player.defence, pLV = player.Level, pMEXP = player.MAX_Exp, pEXP = player.Exp;
 bool pUnd = player.isUndead, pdead = player.dead, pCor = player.isCorrupted, ispDEFup = false;
-short eHP = enemy.HP, eMHP = enemy.MAX_HP, eMP = enemy.MP, eMMP = enemy.MAX_MP, eSTR = enemy.strength, eAGL = enemy.agility, eDEF = enemy.defence, eEXP = enemy.Exp;
-bool eUnd = enemy.isUndead, edead = enemy.dead, eCor = enemy.isCorrupted, iseDEFup = false;
+short eHP = enemy.HP, eMHP = enemy.MAX_HP, eAP = enemy.AP, eMAP = enemy.MAX_AP, eSTR = enemy.strength, eAGL = enemy.agility, eDEF = enemy.defence, eEXP = enemy.Exp;
+bool eUnd = enemy.isUndead, edead = enemy.dead, eCor = enemy.isCorrupted, iseDEFup, iseSMKed = false;
 bool turns = true;
+short eNumber = 0;
 
 void saveFile() {
 
@@ -15,7 +16,7 @@ void saveFile() {
 
 	if (savefile.good() == false) { cout << endl << "파일 저장에 실패하였습니다" << endl; return; }
 
-	savefile << pname << " " << pMHP << " " << pHP << " " << pMMP << " " << pMP << " " << pSTR << " " << pAGL << " " << pDEF << " " << pLV << " " << pMEXP << " " << pEXP << " " << pUnd << " " << pdead << " " << pCor << " " << ispDEFup;
+	savefile << pname << " " << pMHP << " " << pHP << " " << pMAP << " " << pAP << " " << pSTR << " " << pAGL << " " << pDEF << " " << pLV << " " << pMEXP << " " << pEXP << " " << pUnd << " " << pdead << " " << pCor << " " << ispDEFup;
 	cout << endl << "저장이 정상적으로 완료되었습니다." << endl;
 	savefile.close();
 
@@ -29,13 +30,13 @@ void loadFile() {
 
 	if (savefile.good() == false) { cout << endl << "파일 불러오기에 실패하였습니다" << endl; return; }
 
-	savefile >> pname >> pMHP >> pHP >> pMMP >> pMP >> pSTR >> pAGL >> pDEF >> pLV >> pMEXP >> pEXP >> pUnd >> pdead >> pCor >> ispDEFup;
+	savefile >> pname >> pMHP >> pHP >> pMAP >> pAP >> pSTR >> pAGL >> pDEF >> pLV >> pMEXP >> pEXP >> pUnd >> pdead >> pCor >> ispDEFup;
 
 	cout << endl << "로드된 세이브 파일" << endl <<
 		"AI - " << pname << endl <<
 		"LV - " << pLV << endl <<
 		"HP - " << pHP << "/" << pMHP << endl <<
-		"MP - " << pMP << "/" << pMMP << endl <<
+		"AP - " << pAP << "/" << pMAP << endl <<
 		"STR - " << pSTR << endl <<
 		"AGL - " << pAGL << endl <<
 		"DEF - " << pDEF << endl <<
@@ -54,8 +55,8 @@ void PlayerReset() {
 	pname = player.name;
 	pMHP = player.MAX_HP;
 	pHP = player.HP;
-	pMMP = player.MAX_MP;
-	pMP = player.MP;
+	pMAP = player.MAX_AP;
+	pAP = player.AP;
 	pMEXP = player.MAX_Exp;
 	pEXP = player.Exp;
 	pSTR = player.strength;
@@ -70,11 +71,12 @@ void PlayerReset() {
 
 void attackerReset() {
 
+	eNumber = 3;
 	ename = "어태커";
 	eMHP = 60;
 	eHP = 60;
-	eMMP = 20;
-	eMP = 20;
+	eMAP = 20;
+	eAP = 20;
 	eSTR = 5;
 	eAGL = 5;
 	eDEF = 4;
@@ -83,16 +85,18 @@ void attackerReset() {
 	eCor = false;
 	eEXP = 50;
 	turns = false;
+	iseSMKed = false;
 
 }
 
 void tt2Reset() {
 
+	eNumber = 2;
 	ename = "공격적 기계";
 	eMHP = 30;
 	eHP = 30;
-	eMMP = 10;
-	eMP = 10;
+	eMAP = 10;
+	eAP = 10;
 	eSTR = 3;
 	eAGL = 3;
 	eDEF = 2;
@@ -101,16 +105,18 @@ void tt2Reset() {
 	eCor = false;
 	eEXP = 20;
 	turns = true;
+	iseSMKed = false;
 
 }
 
 void tt1Reset() {
-
+	
+	eNumber = 1;
 	ename = "적대적 기계";
 	eMHP = 20;
 	eHP = 20;
-	eMMP = 10;
-	eMP = 10;
+	eMAP = 10;
+	eAP = 10;
 	eSTR = 2;
 	eAGL = 2;
 	eDEF = 1;
@@ -119,5 +125,6 @@ void tt1Reset() {
 	eCor = false;
 	eEXP = 20;
 	turns = true;
+	iseSMKed = false;
 
 }

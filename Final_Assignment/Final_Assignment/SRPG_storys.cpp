@@ -13,7 +13,7 @@ int SRPG_Prologue() {
 		cin >> name;
 		strcpy(player.name,name);
 		rewind(stdin);
-		cout << endl << endl << "입력하신 AI의 이름은 '" << player.name << "' 이(가) 맞습니까?" << endl;
+		cout << endl << endl << "입력하신 AI의 이름은 '" << player.name << "' 가(이) 맞습니까?" << endl;
 		cout << "[1] 예" << endl << "[2] 아니오" << endl << "입력 : ";
 		cin >> ans;
 		if (cin.fail()) {
@@ -96,7 +96,7 @@ int SRPG_2nd_sence() {
 
 	tt1Reset();
 	Battle();
-	cout << endl << "전투 중 교전 대상에게서 로그데이터를 수집하였습니다." << endl;
+	cout << endl << "교전 대상에게서 로그데이터를 해킹하여 수집하였습니다." << endl;
 	_sleep(1500);
 	cout << endl << "로그데이터 분석 결과 멀지않은 지점에 베이스가 있는것을 확인 하였습니다." << endl;
 	_sleep(1500);

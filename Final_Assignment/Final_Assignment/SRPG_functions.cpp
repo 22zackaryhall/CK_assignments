@@ -7,8 +7,8 @@ extern char
 extern short
 pMHP,
 pHP,
-pMMP,
-pMP,
+pMAP,
+pAP,
 pMEXP,
 pEXP,
 pSTR,
@@ -17,12 +17,13 @@ pDEF,
 pLV,
 eMHP,
 eHP,
-eMMP,
-eMP,
+eMAP,
+eAP,
 eSTR,
 eAGL,
 eDEF,
-eEXP;
+eEXP,
+eNumber;
 extern bool
 pUnd,
 pdead,
@@ -32,6 +33,7 @@ edead,
 eCor,
 ispDEFup,
 iseDEFup,
+iseSMKed,
 turns;
 
 int getNums(const int MAX) {
@@ -81,9 +83,9 @@ void getEXP(short get) {
 			cout << "스텟 포인트가 " << SPs << "점 남았습니다." << endl <<
 				"[1] 힘    [2] 민첩    [3] 방어" << endl;
 			switch (getNums(3)) {
-			case 1: --SPs; player.strength++; cout << endl << "힘 스텟이 1 증가하여 " << player.strength << " 이(가) 되었습니다." << endl << endl; break;
-			case 2: --SPs; player.agility++; cout << endl << "민첩 스텟이 1 증가하여 " << player.agility << " 이(가) 되었습니다." << endl << endl; break;
-			case 3: --SPs; player.defence++; cout << endl << "방어 스텟이 1 증가하여 " << player.defence << " 이(가) 되었습니다." << endl << endl; break;
+			case 1: --SPs; player.strength++; cout << endl << "힘 스텟이 1 증가하여 " << player.strength << " 가(이) 되었습니다." << endl << endl; break;
+			case 2: --SPs; player.agility++; cout << endl << "민첩 스텟이 1 증가하여 " << player.agility << " 가(이) 되었습니다." << endl << endl; break;
+			case 3: --SPs; player.defence++; cout << endl << "방어 스텟이 1 증가하여 " << player.defence << " 가(이) 되었습니다." << endl << endl; break;
 			}
 		}
 	}
@@ -113,14 +115,30 @@ void CORDLINEEND() {
 	rewind(stdin);
 }
 
-void bAttack(bool turn) {
-	short temp;
+void bAttack(bool turn, bool hvAttack) {
+	short temp = ((pSTR * 2) - (eDEF));
+	short temp2 = (pAP - 5);
+	bool nEnough = false;
+
 	switch (turn) {
 	case true:
-		cout << endl << pname << "이(가) " << ename << "을(를) 공격!" << endl;
-		temp = ((pSTR * 2) - (eDEF));
+		if (temp2 >= 0 && hvAttack == true) { 
+			cout << endl << pname << "가(이) " << ename << "을(를) 강타!" << endl;
+			temp = (pSTR * 2);
+			pAP = temp2;
+			nEnough = false;
+		}
+		else {
+			if (temp2 < 0 && hvAttack == true) {
+				cout << "AP 가 " << !temp2 << " 만큼 부족합니다." << endl;
+				nEnough = true;
+			}
+			cout << endl << pname << "가(이) " << ename << "을(를) 공격!" << endl;
+			temp = ((pSTR * 2) - (eDEF));
+		}
 		eHP -= temp;
 		if (eHP < 0) {
+			temp += eHP;
 			eHP = 0;
 		}
 		if (((pSTR * 2) - (eDEF)) <= 0) {
@@ -128,7 +146,7 @@ void bAttack(bool turn) {
 		}
 		_sleep(1000);
 		cout << endl << ename << "은(는) " << temp << "만큼의 데미지를 입었다!" << endl;
-		cout << ename << " HP " << eHP << " / " << eMHP << "   MP " << eMP << " / " << eMMP << endl;
+		cout << ename << " HP " << eHP << " / " << eMHP << "   AP " << eAP << " / " << eMAP << endl;
 		_sleep(1000);
 		if (ispDEFup == true) {
 			pDEF -= 2;
@@ -137,14 +155,23 @@ void bAttack(bool turn) {
 		if (eHP <= 0) {
 			edead = true;
 		}
+		if (iseSMKed == true) {
+			cout << endl << ename << "은 연막탄의 효과에서 벗어났다!" << endl;
+			switch (eNumber) {
+			case 1: eAGL = 2; break;
+			case 2: eAGL = 3; break;
+			case 3: eAGL = 5; break;
+			}
+			iseSMKed = false;
+		}
 		turns = false;
 		break;
 
 	case false:
-		cout << endl << ename << "이(가) " << pname << "을(를) 공격!" << endl;
+		cout << endl << ename << "가(이) " << pname << "을(를) 공격!" << endl;
 		pHP -= ((eSTR * 2) - (pDEF));
 		_sleep(1000);
-		cout << endl << pname << "은(는) " << ((eSTR * 2) - (pDEF)) << "만큼의 데미지를 입었다!" << endl;
+		cout << endl << pname << "은(는) " << temp << "만큼의 데미지를 입었다!" << endl;
 		_sleep(1000);
 		if (iseDEFup == true) {
 			eDEF -= 2;
@@ -158,6 +185,29 @@ void bAttack(bool turn) {
 	}
 }
 
+void SKLsmokeBomb() {
+
+	short temp = (pAP - 10);
+	short temp2 = (eAGL - 3);
+	
+	if (temp < 0) {
+		cout << endl << "AP가 " << !temp << " 만큼 모자랍니다." << endl;
+	}
+	if (temp >= 0) {
+		cout << endl << pname << " 은(는) " << ename << " 에게 연막탄을 투척했다!" << endl;
+		if (temp2 < 0) {
+			eAGL = 1;
+		}
+		else {
+			eAGL = temp2;
+		}
+		pAP = temp;
+		iseSMKed = true;
+	}
+	turns = false;
+
+}
+
 void bDefence(bool turn) {
 
 	switch (turn) {
@@ -166,10 +216,19 @@ void bDefence(bool turn) {
 			pDEF -= 2;
 			ispDEFup = false;
 		}
-		cout << endl << pname << "는(은) 공격에 대비했다." << endl;
+		cout << endl << pname << "은(는) 공격에 대비했다." << endl;
 		_sleep(1000);
 		pDEF += 2;
 		ispDEFup = true;
+		if (iseSMKed = true) {
+			cout << endl << ename << "은(는) 연막탄의 효과에서 벗어났다!" << endl;
+			switch (eNumber) {
+			case 1: eAGL = 2; break;
+			case 2: eAGL = 3; break;
+			case 3: eAGL = 5; break;
+			}
+			iseSMKed = false;
+		}
 		turns = false;
 		break;
 	case false:
@@ -177,7 +236,7 @@ void bDefence(bool turn) {
 			eDEF -= 2;
 			iseDEFup = false;
 		}
-		cout << endl << ename << "는(은) 공격에 대비했다." << endl;
+		cout << endl << ename << "은(는) 공격에 대비했다." << endl;
 		_sleep(1000);
 		eDEF += 2;
 		iseDEFup = true;
@@ -189,19 +248,20 @@ void bDefence(bool turn) {
 bool bRunaway(bool turn) {
 
 	short temp;
+	bool temp2;
 
 	if (pAGL > eAGL) {
 		temp = rand() % 100;
 		if (temp < 89) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
-			return true;
+			temp2 = true;
 		}
 		else {
 			cout << endl << "도주 실패." << endl;
 			_sleep(1000);
 			turns = false;
-			return false;
+			temp2 = false;
 		}
 	}
 	else {
@@ -209,15 +269,24 @@ bool bRunaway(bool turn) {
 		if (temp < 54) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
-			return true;
+			temp2 = true;
 		}
 		else {
 			cout << endl << "도주 실패." << endl;
 			_sleep(1000);
 			turns = false;
-			return false;
+			temp2 = false;
 		}
 	}
+	if (iseSMKed = true) {
+		switch (eNumber) {
+		case 1: eAGL = 2; break;
+		case 2: eAGL = 3; break;
+		case 3: eAGL = 5; break;
+		}
+		iseSMKed = false;
+	}
+	return temp2;
 }
 
 
@@ -238,14 +307,16 @@ void Battle() {
 				break;
 			}
 			else {
-				cout << endl << "[" << pname << "] HP " << pHP << " / " << pMHP << "   MP " << pMP << " / " << pMMP << endl;
+				cout << endl << "[" << pname << "] HP " << pHP << " / " << pMHP << "   AP " << pAP << " / " << pMAP << endl;
 				cout << "당신의 차례 입니다." << endl <<
-					"[1] 공격   [2] 방어   [3] 도망" << endl;
-				pChoice = getNums(3);
+					"[1] 공격" << endl << "[2] 강타 (AP 5 소모)" << endl << "[3] 연막탄 (AP 10 소모)" << endl << "[4] 방어" << endl << "[5] 도망" << endl;
+				pChoice = getNums(5);
 				switch (pChoice) {
-				case 1: bAttack(turns); break;
-				case 2: bDefence(turns); break;
-				case 3: Runaway = bRunaway(turns); break;
+				case 1: bAttack(turns, false); break;
+				case 2: bAttack(turns, true); break;
+				case 3: SKLsmokeBomb(); break;
+				case 4: bDefence(turns); break;
+				case 5: Runaway = bRunaway(turns); break;
 				}
 			}
 		case false:
@@ -255,8 +326,8 @@ void Battle() {
 			else {
 				eChoice = (rand() % 3);
 				switch (eChoice) {
-				case 0: bAttack(turns); break;
-				case 1: bAttack(turns); break;
+				case 0: bAttack(turns,false); break;
+				case 1: bAttack(turns,false); break;
 				case 2: bDefence(turns); break;
 				}
 			}
@@ -343,15 +414,16 @@ void LfABase(bool isLoad) {
 		switch (getNums(5)) {
 		case 1: walking(5, 2); break;
 		case 2: pHP = pMHP;
+			pAP = pMAP;
 			cout << endl << "회복이 완료되었습니다." << endl;
 			_sleep(750);
-			cout << endl << "[" << pname << "] HP " << pHP << " / " << pMHP << "   MP " << pMP << " / " << pMMP << endl;
+			cout << endl << "[" << pname << "] HP " << pHP << " / " << pMHP << "   AP " << pAP << " / " << pMAP << endl;
 			break;
 		case 3: cout << endl << "상태" << endl <<
 			"AI - " << pname << endl <<
 			"LV - " << pLV << endl <<
 			"HP - " << pHP << "/" << pMHP << endl <<
-			"MP - " << pMP << "/" << pMMP << endl <<
+			"AP - " << pAP << "/" << pMAP << endl <<
 			"STR - " << pSTR << endl <<
 			"AGL - " << pAGL << endl <<
 			"DEF - " << pDEF << endl <<
