@@ -34,6 +34,8 @@ int SRPG_Prologue() {
 	system("cls");
 	return 0;
 }
+
+//디버그용 스토리 스킵
 #ifdef DEBUG
 
 int SRPG_1st_sence() {
@@ -43,6 +45,8 @@ int SRPG_1st_sence() {
 
 #endif // DEBUG
 
+
+//릴리즈
 #ifdef RELEASE
 int SRPG_1st_sence() {
 	PlayerReset();
@@ -78,7 +82,7 @@ int SRPG_1st_sence() {
 	_sleep(1000);
 	cout << "스캔 결과 - 주 저장소 수리 필요.";
 	_sleep(1000);
-	cout << endl << "개체 상태 양호하지 못함." << endl << 
+	cout << endl << "기체 상태 양호하지 못함." << endl << 
 		"수리 및 업그레이드가 권장됨.";
 	_sleep(1000);
 	cout << endl << "기체 제어권을 시스템에서 '" << player.name << "' 으로 전환.";
