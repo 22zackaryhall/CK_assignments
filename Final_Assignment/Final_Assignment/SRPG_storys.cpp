@@ -5,34 +5,12 @@ struct Player player;
 struct Enemy enemy;
 
 int SRPG_Prologue() {
-	while (true) {
-		short ans;
-		char name[16];
-		cout << "AI의 이름을 설정해 주세요.(영어 16자 한글 8자 이하)" << endl <<
-			"AI의 이름 : ";
-		cin >> name;
-		strcpy(player.name,name);
-		rewind(stdin);
-		cout << endl << endl << "입력하신 AI의 이름은 '" << player.name << "' 가(이) 맞습니까?" << endl;
-		cout << "[1] 예" << endl << "[2] 아니오" << endl << "입력 : ";
-		cin >> ans;
-		if (cin.fail()) {
-			cout << "잘못된 입력입니다. 다시 입력하여주시기 바랍니다." << endl;
-			cin.clear();
-		}
-		rewind(stdin);
-		if (ans == 1){
-			break;
-		}
-		else if (ans == 2) {
-		}
-		else {
-			cout << "잘못된 입력입니다. 다시 입력하여주시기 바랍니다." << endl;
-		}
-	}
 
-	system("cls");
-	return 0;
+	while (true) {
+		getName();
+		system("cls");
+		return 0;
+	}
 }
 
 //디버그용 스토리 스킵

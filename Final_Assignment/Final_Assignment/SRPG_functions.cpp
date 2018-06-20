@@ -64,6 +64,29 @@ int getNums(const int MAX) {
 	return Num;
 }
 
+//이름을 입력받는 함수
+char getName() {
+	char name[16];
+	bool inFail = false;
+
+	while (!inFail) {
+		for (int i = 0; i < sizeof(name); i++) {
+			name[i] = NULL;
+		}
+		cout << endl << "이름을 입력해 주십시요 (공백 없이 16byte이하)" << endl;
+		cin >> name;
+		strcpy(player.name, name);
+		cout << endl << endl << "입력하신 AI의 이름은 '" << player.name << "' 가(이) 맞습니까?" << endl;
+		cout << "[1] 예" << endl << "[2] 아니오" << endl;
+		switch (getNums(2)) {
+		case 1: return *name; break;
+		case 2: continue;
+		}
+	}
+		
+}
+
+
 //감염여부 (미사용)
 void isCorrupted(bool in) {
 	
@@ -230,6 +253,9 @@ void SKLsmokeBomb(bool turn) {
 	}
 	if (temp >= 0) {
 		cout << endl << pname << " 은(는) " << ename << " 에게 연막탄을 투척했다!" << endl;
+		_sleep(500);
+		cout << endl << ename << " 의 시야를 봉쇄하였습니다. 1턴 동안 도주 확률이 증가합니다." << endl;
+		_sleep(500);
 		if (temp2 < 0) {
 			eAGL = 1;
 		}
@@ -289,12 +315,23 @@ void bDefence(bool turn) {
 //전투종료를 위한 도주 성공이나 실패 값을 반환해주는 함수
 bool bRunaway(bool turn) {
 
-	short temp;
+	short temp = rand() % 100;
 	bool temp2;
 
 	if (pAGL > eAGL) {
-		temp = rand() % 100;
-		if (temp < 89) {
+		
+		if (iseSMKed == true && temp < 90) {
+			cout << endl << "도주 성공." << endl;
+			_sleep(1000);
+			temp2 = true;
+		}
+		else {
+			cout << endl << "도주 실패." << endl;
+			_sleep(1000);
+			turns = false;
+			temp2 = false;
+		}
+		if (iseSMKed == false && temp < 74) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
 			temp2 = true;
@@ -307,8 +344,19 @@ bool bRunaway(bool turn) {
 		}
 	}
 	else {
-		temp = rand() % 100;
-		if (temp < 54) {
+		if (iseSMKed == true && temp < 74) {
+			cout << endl << "도주 성공." << endl;
+			_sleep(1000);
+			temp2 = true;
+		}
+		else {
+			cout << endl << "도주 실패." << endl;
+			_sleep(1000);
+			turns = false;
+			temp2 = false;
+		}
+
+		if (iseSMKed == false && temp < 54) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
 			temp2 = true;

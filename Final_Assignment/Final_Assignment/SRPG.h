@@ -20,6 +20,7 @@ extern int SRPG_Prologue();
 extern int SRPG_1st_sence();
 extern int SRPG_2nd_sence();
 extern int getNums(const int MAX);
+extern char getName();
 extern void isCorrupted(bool in);
 extern void Battle();
 extern void CORDLINEEND();
