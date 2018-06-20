@@ -1,6 +1,7 @@
 #include "SRPG.h"
 #include "SRPG_characters.h"
 
+//구조체의 기본값들을 소스파일에서 변수로 선언
 char *pname = player.name;
 char *ename = enemy.name;
 short pHP = player.HP, pMHP = player.MAX_HP, pAP = player.AP, pMAP = player.MAX_AP, pSTR = player.strength, pAGL = player.agility, pDEF = player.defence, pLV = player.Level, pMEXP = player.MAX_Exp, pEXP = player.Exp;
@@ -10,6 +11,7 @@ bool eUnd = enemy.isUndead, edead = enemy.dead, eCor = enemy.isCorrupted, iseDEF
 bool turns = true;
 short eNumber = 0;
 
+//저장
 void saveFile() {
 
 	ofstream savefile("save.bin");
@@ -22,13 +24,13 @@ void saveFile() {
 
 }
 
+//불러오기
 void loadFile() {
 
 	system("cls");
 
 	ifstream savefile("save.bin");
-
-	if (savefile.good() == false) { cout << endl << "파일 불러오기에 실패하였습니다" << endl; return; }
+	if (savefile.is_open() == false) { cout << endl << "세이브 데이터가 없거나 불러오기에 실패하였습니다" << endl; return; }
 
 	savefile >> pname >> pMHP >> pHP >> pMAP >> pAP >> pSTR >> pAGL >> pDEF >> pLV >> pMEXP >> pEXP >> pUnd >> pdead >> pCor >> ispDEFup;
 
@@ -47,9 +49,11 @@ void loadFile() {
 	cout << endl << "엔터(Enter)키 를 누르면 진행합니다." << endl;
 	getch();
 	rewind(stdin);
+	LfABase(true);
 
 }
 
+//플레이어 데이터를 리셋시킴
 void PlayerReset() {
 
 	pname = player.name;
@@ -69,6 +73,7 @@ void PlayerReset() {
 
 }
 
+//적 데이터를 어태커로 초기화시킴
 void attackerReset() {
 
 	eNumber = 3;
@@ -89,6 +94,7 @@ void attackerReset() {
 
 }
 
+//적 데이터를 공격적 기계로 초기화시킴
 void tt2Reset() {
 
 	eNumber = 2;
@@ -109,6 +115,7 @@ void tt2Reset() {
 
 }
 
+//적 데이터를 적대적 기계로 초기화시킴
 void tt1Reset() {
 	
 	eNumber = 1;

@@ -6,7 +6,10 @@
 #include <cstdlib>
 #include <fstream>
 
+//#define DEBUG
 #define RELEASE
+
+#define DEFup 4
 
 using namespace std;
 

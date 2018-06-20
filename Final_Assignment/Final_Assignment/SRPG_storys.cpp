@@ -117,7 +117,7 @@ int SRPG_2nd_sence() {
 
 }
 
-
+//Å©·¹µ÷
 void SRPG_Credits() {
 	system("cls");
 	cout << endl << endl << endl << endl <<

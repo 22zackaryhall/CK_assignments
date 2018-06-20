@@ -1,6 +1,7 @@
 #include "SRPG.h"
 #include "SRPG_characters.h"
 
+//SRPG_characters.cpp에 선언한 플레이어 데이터와 적 데이터를 외부참조
 extern char
 *pname,
 *ename;
@@ -38,6 +39,8 @@ turns;
 
 bool isSMKfail = false;
 
+
+//MAX값을 입력받아 1 ~ MAX 중의 입력받은 정수를 반환해주는 재귀호출함수
 int getNums(const int MAX) {
 
 	int Num = 0;
@@ -61,6 +64,7 @@ int getNums(const int MAX) {
 	return Num;
 }
 
+//감염여부 (미사용)
 void isCorrupted(bool in) {
 	
 	if (in == true) {
@@ -71,6 +75,7 @@ void isCorrupted(bool in) {
 	}
 }
 
+//얻은 경험치(get)으로 레벨업 여부를 판단하고, 레벨이 올랐을 경우 스텟 포인트를 2개 얻음
 void getEXP(short get) {
 
 	pEXP += get;
@@ -93,6 +98,7 @@ void getEXP(short get) {
 	}
 }
 
+//전투중 플레이어 혹은 적의 체력이 0이 되었을 때 전투 종료를 위한 값을 반환해주는 함수
 short isBattleover() {
 	int over;
 	if (pdead == true) {
@@ -111,19 +117,24 @@ short isBattleover() {
 	return over;
 }
 
+//코드 테스트 중 코드의 마지막을 확인하기 위해 사용하는 함수
 void CORDLINEEND() {
 	cout << endl << "!!! END LINE !!!" << endl;
 	getch();
 	rewind(stdin);
 }
 
+
+//전투에서 플레이어와 적의 공격을 처리하는 함수
 void bAttack(bool turn, bool hvAttack) {
 	short PtEtemp = ((pSTR * 2) - (eDEF));
 	short EtPtemp = ((eSTR * 2) - (pDEF));
 	short temp2 = (pAP - 5);
-	bool nEnough = false;
+	bool nEnough = false; //AP가 충분하거나 모자람을 나타내는 변수
 
 	switch (turn) {
+
+		//플레이어의 공격
 	case true:
 		if (temp2 >= 0 && hvAttack == true) { 
 			cout << endl << pname << "가(이) " << ename << "을(를) 강타!" << endl;
@@ -139,20 +150,23 @@ void bAttack(bool turn, bool hvAttack) {
 			cout << endl << pname << "가(이) " << ename << "을(를) 공격!" << endl;
 			PtEtemp = ((pSTR * 2) - (eDEF));
 		}
+
+		if (((pSTR * 2) - (eDEF)) <= 0) {
+			PtEtemp = 1;
+		}
 		eHP -= PtEtemp;
 		if (eHP < 0) {
 			PtEtemp += eHP;
 			eHP = 0;
 		}
-		if (((pSTR * 2) - (eDEF)) <= 0) {
-			PtEtemp = 1;
-		}
+
+
 		_sleep(1000);
 		cout << endl << ename << "은(는) " << PtEtemp << "만큼의 데미지를 입었다!" << endl;
 		cout << ename << " HP " << eHP << " / " << eMHP << "   AP " << eAP << " / " << eMAP << endl;
 		_sleep(1000);
 		if (ispDEFup == true) {
-			pDEF -= 2;
+			pDEF -= DEFup;
 			ispDEFup = false;
 		}
 		if (eHP <= 0) {
@@ -170,25 +184,28 @@ void bAttack(bool turn, bool hvAttack) {
 		turns = false;
 		break;
 
+		//적의 공격
 	case false:
 		if (isSMKfail == true) {
 			turns = true;
 			break;
 		}
 		cout << endl << ename << "가(이) " << pname << "을(를) 공격!" << endl;
+
+		if (((eSTR * 2) - (pDEF)) <= 0) {
+			EtPtemp = 1;
+		}
 		pHP -= EtPtemp;
 		if (pHP < 0) {
 			EtPtemp += pHP;
 			pHP = 0;
 		}
-		if (((eSTR * 2) - (pDEF)) <= 0) {
-			EtPtemp = 1;
-		}
+
 		_sleep(1000);
 		cout << endl << pname << "은(는) " << EtPtemp << "만큼의 데미지를 입었다!" << endl;
 		_sleep(1000);
 		if (iseDEFup == true) {
-			eDEF -= 2;
+			eDEF -= DEFup;
 			iseDEFup = false;
 		}
 		if (pHP <= 0) {
@@ -199,6 +216,7 @@ void bAttack(bool turn, bool hvAttack) {
 	}
 }
 
+//연막탄
 void SKLsmokeBomb(bool turn) {
 
 	short temp = (pAP - 10);
@@ -226,17 +244,18 @@ void SKLsmokeBomb(bool turn) {
 
 }
 
+//전투 중 플레이어와 적의 방어를 처리하는 함수
 void bDefence(bool turn) {
 
 	switch (turn) {
 	case true:
 		if (ispDEFup == true) {
-			pDEF -= 2;
+			pDEF -= DEFup;
 			ispDEFup = false;
 		}
 		cout << endl << pname << "은(는) 공격에 대비했다." << endl;
 		_sleep(1000);
-		pDEF += 2;
+		pDEF += DEFup;
 		ispDEFup = true;
 		if (iseSMKed == true) {
 			cout << endl << ename << "은(는) 연막탄의 효과에서 벗어났다!" << endl;
@@ -255,18 +274,19 @@ void bDefence(bool turn) {
 			break;
 		}
 		if (iseDEFup == true) {
-			eDEF -= 2;
+			eDEF -= DEFup;
 			iseDEFup = false;
 		}
 		cout << endl << ename << "은(는) 공격에 대비했다." << endl;
 		_sleep(1000);
-		eDEF += 2;
+		eDEF += DEFup;
 		iseDEFup = true;
 		turns = true;
 		break;
 	}
 }
 
+//전투종료를 위한 도주 성공이나 실패 값을 반환해주는 함수
 bool bRunaway(bool turn) {
 
 	short temp;
@@ -311,15 +331,19 @@ bool bRunaway(bool turn) {
 	return temp2;
 }
 
-
+//전투의 메인 함수
 void Battle() {
 
 	int pChoice = 1, eChoice = 1;
 	bool Runaway = false;
 
 	cout << endl << "! 교전 !" << endl;
+
+	_sleep(500);
+
+	cout << "[" << ename << "] HP " << eHP << " / " << eMHP << "   AP " << eAP << " / " << eMAP << endl;
 	
-	_sleep(1500);
+	_sleep(1000);
 
 	do {
 		switch (turns) {
@@ -365,9 +389,10 @@ void Battle() {
 	if (edead == true) {
 		getEXP(eEXP);
 	}
-	_sleep(1500);
+	_sleep(1000);
 }
 
+//플레이어 사망
 void gameOver() {
 	
 	cout << endl << "GAME OVER" << endl;
@@ -381,6 +406,7 @@ void gameOver() {
 
 }
 
+//탐색
 void walking(short Distance, short howmany) {
 
 	short temp, temp2 = 0;
@@ -408,6 +434,7 @@ void walking(short Distance, short howmany) {
 	}
 }
 
+//처음으로 베이스에 들어갔을 때
 void LfABaseFirst() {
 	
 	cout << endl << "베이스의 좌표에 도착하였습니다." << endl;
@@ -430,6 +457,7 @@ void LfABaseFirst() {
 
 }
 
+//플레이어 스테이터스 표시
 void printpStatus() {
 	cout << endl << "상태" << endl <<
 		"AI - " << pname << endl <<
@@ -445,6 +473,7 @@ void printpStatus() {
 	rewind(stdin);
 }
 
+//베이스
 void LfABase(bool isLoad) {
 
 	if (isLoad == true) {
