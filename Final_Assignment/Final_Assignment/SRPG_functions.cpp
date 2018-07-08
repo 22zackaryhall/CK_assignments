@@ -316,13 +316,21 @@ void bDefence(bool turn) {
 bool bRunaway(bool turn) {
 
 	short temp = rand() % 100;
-	bool temp2;
+	bool temp2 = NULL;
 
-	if (pAGL > eAGL) {
+
+	if (iseSMKed == true) {
 		
-		if (iseSMKed == true && temp < 90) {
+		if (pAGL >= eAGL && temp <= 90) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
+			turns = false;
+			temp2 = true;
+		}
+		else if (pAGL < eAGL && temp < 74) {
+			cout << endl << "도주 성공." << endl;
+			_sleep(1000);
+			turns = false;
 			temp2 = true;
 		}
 		else {
@@ -331,34 +339,19 @@ bool bRunaway(bool turn) {
 			turns = false;
 			temp2 = false;
 		}
-		if (iseSMKed == false && temp < 74) {
-			cout << endl << "도주 성공." << endl;
-			_sleep(1000);
-			temp2 = true;
-		}
-		else {
-			cout << endl << "도주 실패." << endl;
-			_sleep(1000);
-			turns = false;
-			temp2 = false;
-		}
+		
 	}
 	else {
-		if (iseSMKed == true && temp < 74) {
+		if (pAGL >= eAGL && temp < 74) {
 			cout << endl << "도주 성공." << endl;
-			_sleep(1000);
-			temp2 = true;
-		}
-		else {
-			cout << endl << "도주 실패." << endl;
 			_sleep(1000);
 			turns = false;
-			temp2 = false;
+			temp2 = true;
 		}
-
-		if (iseSMKed == false && temp < 54) {
+		else if (pAGL < eAGL &&  temp < 54) {
 			cout << endl << "도주 성공." << endl;
 			_sleep(1000);
+			turns = false;
 			temp2 = true;
 		}
 		else {
@@ -368,6 +361,7 @@ bool bRunaway(bool turn) {
 			temp2 = false;
 		}
 	}
+
 	if (iseSMKed = true) {
 		switch (eNumber) {
 		case 1: eAGL = 2; break;
